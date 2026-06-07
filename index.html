@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FIFA World Cup 2026 — Predictions</title>
+  <meta name="description" content="Make your predictions for the upcoming FIFA World Cup. See what others think will happen." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-content">
+      <div class="badge">FIFA WORLD CUP 2026</div>
+      <h1>Who will lift the trophy?</h1>
+      <p class="subtitle">Submit your prediction for the next World Cup champion. See what the world thinks.</p>
+      <div class="countdown" id="countdown">
+        <div class="time-block"><span id="days">--</span><label>Days</label></div>
+        <div class="time-block"><span id="hours">--</span><label>Hours</label></div>
+        <div class="time-block"><span id="minutes">--</span><label>Minutes</label></div>
+        <div class="time-block"><span id="seconds">--</span><label>Seconds</label></div>
+      </div>
+      <a href="#predict" class="cta">Make your prediction ↓</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="predict" class="card">
+      <h2>Make a prediction</h2>
+      <p class="muted">Pick the team you think will win, your predicted final score, and a name to display on the leaderboard.</p>
+
+      <form id="prediction-form" novalidate>
+        <div class="form-row">
+          <label for="name">Your name (or handle)</label>
+          <input type="text" id="name" name="name" maxlength="32" placeholder="e.g. footballfan42" required />
+        </div>
+
+        <div class="form-row">
+          <label for="team">Champion pick</label>
+          <select id="team" name="team" required>
+            <option value="" disabled selected>Select a team…</option>
+            <optgroup label="Top contenders">
+              <option>Brazil</option>
+              <option>France</option>
+              <option>Argentina</option>
+              <option>England</option>
+              <option>Spain</option>
+              <option>Germany</option>
+            </optgroup>
+            <optgroup label="Other qualified / likely">
+              <option>Portugal</option>
+              <option>Netherlands</option>
+              <option>Italy</option>
+              <option>Belgium</option>
+              <option>USA</option>
+              <option>Mexico</option>
+              <option>Canada</option>
+              <option>Japan</option>
+              <option>South Korea</option>
+              <option>Croatia</option>
+              <option>Morocco</option>
+              <option>Senegal</option>
+              <option>Denmark</option>
+              <option>Switzerland</option>
+              <option>Uruguay</option>
+              <option>Colombia</option>
+            </optgroup>
+            <option>Other (specify in note)</option>
+          </select>
+        </div>
+
+        <div class="form-row split">
+          <div>
+            <label for="score-winner">Predicted final</label>
+            <div class="score-inputs">
+              <input type="number" id="score-winner" name="scoreWinner" min="0" max="20" placeholder="2" required />
+              <span>–</span>
+              <input type="number" id="score-runner" name="scoreRunner" min="0" max="20" placeholder="1" required />
+            </div>
+          </div>
+          <div>
+            <label for="runner-up">Runner-up</label>
+            <select id="runner-up" name="runnerUp" required>
+              <option value="" disabled selected>Select a team…</option>
+              <option>Brazil</option>
+              <option>France</option>
+              <option>Argentina</option>
+              <option>England</option>
+              <option>Spain</option>
+              <option>Germany</option>
+              <option>Portugal</option>
+              <option>Netherlands</option>
+              <option>Italy</option>
+              <option>Belgium</option>
+              <option>USA</option>
+              <option>Mexico</option>
+              <option>Japan</option>
+              <option>Croatia</option>
+              <option>Morocco</option>
+              <option>Uruguay</option>
+              <option>Colombia</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="note">Bold take (optional)</label>
+          <textarea id="note" name="note" maxlength="200" rows="2" placeholder="Why this team wins it all…"></textarea>
+        </div>
+
+        <button type="submit" class="cta">Submit prediction</button>
+        <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section id="leaderboard" class="card">
+      <div class="leaderboard-header">
+        <h2>Community leaderboard</h2>
+        <button id="clear-btn" class="ghost-btn" title="Remove all predictions stored in this browser">Clear all</button>
+      </div>
+      <p class="muted">Top picks from everyone who's predicted on this device.</p>
+
+      <div class="stats" id="stats">
+        <div class="stat"><span id="stat-total">0</span><label>Predictions</label></div>
+        <div class="stat"><span id="stat-top">—</span><label>Top pick</label></div>
+        <div class="stat"><span id="stat-score">—</span><label>Most predicted score</label></div>
+      </div>
+
+      <div class="bar-chart" id="bar-chart" aria-label="Most picked teams"></div>
+
+      <h3 class="subhead">All predictions</h3>
+      <ul id="predictions-list" class="predictions-list">
+        <li class="empty">No predictions yet — be the first.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Built by fans, for fans · Predictions are stored locally in your browser.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
